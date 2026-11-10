@@ -2,7 +2,7 @@
 
 One shared board for your team's end-of-day AI round-ups. Each person pastes their round-up and every task lands on one board, sorted by status, sector, round, priority and next step.
 
-Live: https://shaun-finch.github.io/dailies/
+Live: https://shaun-finch.github.io/Dailies/
 
 - `index.html`: landing page
 - `app.html`: the board
