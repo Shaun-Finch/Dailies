@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dailies — type the round-up, Dailies sorts it</title>
+<meta name="description" content="Paste your end-of-day update from Claude, ChatGPT or Gemini. Dailies sorts every task by status, sector, round, priority and next step.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shaun Finch">
+<meta property="og:title" content="Dailies — type the round-up, Dailies sorts it">
+<meta property="og:description" content="Paste your end-of-day update from Claude, ChatGPT or Gemini. Dailies sorts every task by status, sector, round, priority and next step.">
+<meta property="og:url" content="https://shaun-finch.github.io/dailies/index.html">
+<meta property="og:image" content="https://shaun-finch.github.io/dailies/og/dailies-index.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#050507">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23d9ff3f'/%3E%3Cstop offset='1' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='%23050507'/%3E%3Cpath d='M8 7h7.5C21 7 25 10.8 25 16s-4 9-9.5 9H8z M12 10.8v10.4h3.4c3.1 0 5.2-2.1 5.2-5.2s-2.1-5.2-5.2-5.2z' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap">
+<link rel="stylesheet" href="dailies.css">
+</head>
+<body>
+<header class="hd"><div class="wrap">
+  <a class="logo" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dcff3f"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs><path d="M6 5h9.5C22.4 5 27 9.6 27 16s-4.6 11-11.5 11H6z M11 9.8v12.4h4.3c3.9 0 6.5-2.5 6.5-6.2s-2.6-6.2-6.5-6.2z" fill="url(#lg)"/></svg>dailies</a><span class="sp"></span>
+  <a class="btn doc" href="dailies-prompt.docx" download="Dailies-prompt.docx" title="Download the Dailies prompt as a Word document"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg><span class="l">Prompt</span><span class="x">.docx</span></a>
+  <a class="btn primary" href="app.html">Open dashboard</a>
+</div></header>
+<main>
+  <section class="hero"><div class="wrap">
+    <div>
+      <span class="mono">Daily round-ups for AI-assisted teams</span>
+      <h1>Type the round&#8209;up.<br><span class="gtext">Dailies sorts it.</span></h1>
+      <p class="lede">Paste your end-of-day update from Claude, ChatGPT or Gemini. Dailies files every task by status, sector, round, priority and next step, on one board your whole team shares.</p>
+      <div class="cta"><a class="btn primary" href="app.html">Open dashboard</a><a class="btn" href="dailies-prompt.docx" download="Dailies-prompt.docx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Get the prompt (.docx)</a></div>
+    </div>
+    <div class="demo" id="demo" aria-label="Animated example: a typed round-up becomes a row on the board">
+      <div class="bar"><i></i><i></i><i></i><span class="mono">dailies / board</span></div>
+      <div class="in">
+        <div class="ta" id="dTa" aria-hidden="true"><span id="dTx"></span><span class="caret"></span></div>
+        <div class="chips" id="dChips"></div>
+        <div class="row-add"><span class="btn primary sm" id="dBtn">Add to board</span></div>
+        <table class="t" aria-hidden="true"><thead><tr><th>Task</th><th>Status</th><th>Priority</th><th class="hide-s">Round</th><th class="hide-s">Next step</th></tr></thead><tbody id="dRows">
+          <tr><td class="task"><b>Onboarding emails</b><small>Marketing</small></td><td><span class="st st-inprogress">In progress</span></td><td><span class="pr pr-medium"><i></i>Medium</span></td><td class="rnd hide-s">R2</td><td class="next hide-s">Draft the last two</td></tr>
+          <tr><td class="task"><b>Design system tokens</b><small>UX/UI</small></td><td><span class="st st-blocked">Blocked</span></td><td><span class="pr pr-medium"><i></i>Medium</span></td><td class="rnd hide-s">R2</td><td class="next hide-s">Agree token names</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div></section>
+  <section class="steps"><div class="wrap">
+    <div class="s"><span class="mono">01</span><b>Run the prompt</b><span>In Claude, ChatGPT or Gemini at the end of the day.</span></div>
+    <div class="s"><span class="mono">02</span><b>Paste the reply</b><span>Or just type what you did, in plain words.</span></div>
+    <div class="s"><span class="mono">03</span><b>Share one board</b><span>Your whole team’s tasks, sorted and live.</span></div>
+  </div></section>
+</main>
+<footer class="foot"><div class="wrap"><span>&copy; 2026 Dailies. Designed and built by <a href="https://shaun-finch.github.io/Design/">Shaun Finch</a>.</span><span>One shared board for your whole team.</span></div></footer>
+<script src="parse.js"></script>
+<script>
+(function(){
+  var P=window.DailiesParse, reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var EX=[{t:'Finished the checkout payment step and sent it for review. Next: apply Priya\u2019s notes on Monday. High priority.',s:'UX/UI',r:3},
+          {t:'Subtitle automation is blocked, waiting on the captions API key from Tom. Next: run the test batch once it lands.',s:'Video',r:4},
+          {t:'Started the Q4 pricing page copy for marketing. Next: share the first draft with Sam on Thursday.',s:'Marketing',r:1}];
+  var slug=function(s){return s.toLowerCase().replace(/[^a-z]/g,'')}, esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  var tx=document.getElementById('dTx'), chips=document.getElementById('dChips'), btn=document.getElementById('dBtn'), rows=document.getElementById('dRows'), i=0;
+  function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
+  async function play(){
+    var ex=EX[i++%EX.length], it=P.parse(ex.t,{sector:ex.s,user:''})[0]; it.round=ex.r;
+    tx.textContent=''; chips.innerHTML='';
+    if(reduce){tx.textContent=ex.t}else{for(var k=0;k<ex.t.length;k++){tx.textContent=ex.t.slice(0,k+1);await wait(ex.t[k]===' '?22:30)}}
+    await wait(300);
+    var cs=['<span class="chip pop"><b>'+esc(it.task)+'</b></span>','<span class="chip pop">'+esc(it.sector)+'</span>','<span class="st st-'+slug(it.status)+' pop">'+it.status+'</span>','<span class="chip pop"><span class="pr pr-'+slug(it.priority)+'"><i></i>'+it.priority+'</span></span>','<span class="chip pop">Round '+it.round+'</span>','<span class="chip pop">Next: <b>'+esc(it.next)+'</b></span>'];
+    for(var c=0;c<cs.length;c++){chips.insertAdjacentHTML('beforeend',cs[c]);await wait(reduce?0:170)}
+    await wait(700); btn.classList.add('pressed'); await wait(160); btn.classList.remove('pressed');
+    var tr=document.createElement('tr'); tr.className='new';
+    tr.innerHTML='<td class="task"><b>'+esc(it.task)+'</b><small>'+esc(it.sector)+'</small></td><td><span class="st st-'+slug(it.status)+'">'+it.status+'</span></td><td><span class="pr pr-'+slug(it.priority)+'"><i></i>'+it.priority+'</span></td><td class="rnd hide-s">R'+it.round+'</td><td class="next hide-s">'+esc(it.next)+'</td>';
+    rows.insertBefore(tr,rows.firstChild); while(rows.children.length>3)rows.removeChild(rows.lastChild);
+    tx.textContent=''; chips.innerHTML='';
+    await wait(2600); play();
+  }
+  window.dailiesDemo={restart:function(){i=0}};
+  setTimeout(play,500);
+})();
+</script>
+</body>
+</html>
